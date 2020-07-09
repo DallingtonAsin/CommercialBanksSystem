@@ -1,0 +1,73 @@
+{
+    "name": "bmatovu/laravel-mtn-momo",
+    "description": "Laravel MTN MOMO integration.",
+    "homepage": "https://github.com/mtvbrianking/laravel-mtn-momo",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "package",
+        "mtn",
+        "momo",
+        "api"
+    ],
+    "authors": [
+        {
+            "name": "Brian Matovu",
+            "email": "mtvbrianking@gmail.com",
+            "homepage": "http://bmatovu.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "bmatovu/oauth-negotiator": "~1.0.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "illuminate/console": "^6.0",
+        "illuminate/container": "^6.0",
+        "illuminate/contracts": "^6.0",
+        "illuminate/database": "^6.0",
+        "illuminate/support": "^6.0",
+        "nesbot/carbon": "^2.0",
+        "ramsey/uuid": "^3.7"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.2.3",
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "suggest": {
+        "monolog/monolog": "For more comprehensive logging."
+    },
+    "autoload": {
+        "psr-4": {
+            "Bmatovu\\MtnMomo\\": "src/"
+        },
+        "files": [
+            "src/Support/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bmatovu\\MtnMomo\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "doc": "phpdoc -d src -t docs --cache-folder=docs/cache",
+        "test": "./vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bmatovu\\MtnMomo\\MtnMomoServiceProvider"
+            ]
+        }
+    }
+}

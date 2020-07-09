@@ -1,0 +1,12 @@
+$destinationPath = "test/";
+    $file = $request->file('profile_pic');
+    if($file->isValid()){
+        $file->move($destinationPath, $file->getClientOriginalName());
+        $user = User::findOrFail(Auth::user()->id);
+        $input = $request->all();
+        $input['profile_pic']->pathname = $destinationPath.$file->getClientOriginalName();
+        $user->update($request->all()); // Remove This
+        // Add this lines
+        $data['YOUR_DB_FIELD_NAME'] = $file->getClientOriginalName();
+        $user->update($data);
+    }
