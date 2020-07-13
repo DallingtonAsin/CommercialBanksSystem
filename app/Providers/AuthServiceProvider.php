@@ -50,9 +50,7 @@ class AuthServiceProvider extends ServiceProvider
     });
 
       Gate::define('isMember', function($user){
-      
-
-      // option 1
+   
        $arr = $this->getPermissions($user->user_role);
        $permitX = $arr['isAdmin'];
         if($permitX == 0){
